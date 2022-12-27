@@ -7,30 +7,29 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    import streamlit as st\n,
-    import pickle\n,
-    "\n",
-    st.title('Which author do you write like?')\n,
-    "\n",
-    page = st.sidebar.selectbox,
-      'Select a page:',\n,
-        ('About', 'Make a prediction')\n,
-    )\n,
-    if page == 'About':\n,
-        st.write('here is my model')\n,
-        st.write('get in touch with me at:')\n,
-    \n,
-    if page == 'Make a prediction':\n,
-        st.write('''Edgar Allen Poe and Jane Austen: both authors. Which one do YOU write like?''')\n,
-    \n
+    import streamlit as st,
+    import pickle,
+    
+    st.title('Which author do you write like?')
+    page = st.sidebar.selectbox
+      'Select a page:'
+        ('About', 'Make a prediction')
+    
+    if page == 'About':
+        st.write('here is my model')
+        st.write('get in touch with me at:')
+    
+    if page == 'Make a prediction':
+        st.write('''Edgar Allen Poe and Jane Austen: both authors. Which one do YOU write like?''')
+    
         with open('models/author_pipe.pkl', mode='rb') as pickle_in:\n
             pipe = pickle.load(pickle_in)\n
-    \n
+    
         user_text = st.text_input('Please input some text:',\n
             value='quoth the raven...nevermore')\n,
-    \n,
+    
         predicted_author = pipe.predict([user_text])[0]\n,
-    \n,
+    
         st.write(f'You write like: {predicted_author}')
    ]
   },
