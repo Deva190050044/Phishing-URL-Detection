@@ -7,8 +7,8 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    import streamlit as st,
-    import pickle,
+    import streamlit as st
+    import pickle
     
     st.title('Which author do you write like?')
     page = st.sidebar.selectbox
